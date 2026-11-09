@@ -4755,3 +4755,42 @@ their length, drew heads of 0.18 of it from the mass model. The owner chose the 
 by hand for the two families the issue names, over measuring every species from photographs, which
 remains [todo.photoProportions](../todo.md#photoproportions) with its cost estimate on the issue.
 
+---
+
+## openSeaSplit
+
+**Defer the Open sea split until the distance-from-shore share is a committed, reproducible column**
+
+Date: 2026-11-09
+Decided by: Sameer
+Status: proposed
+Affects: [product.habitatAndDietFilters](local/product/months.md#habitatanddietfilters), [todo.habitatDataset](../todo.md#habitatdataset)
+
+### Decided
+
+The question in [GitHub issue #10](https://github.com/google/birdview/issues/10) — whether to split
+AVONET's Open sea group into open ocean and sea near shore by the share of water records more than
+10 km from shore — is not settled by this entry. What is settled is the order of work: the share
+must first be a committed, reproducible column, produced by a tool that pins its sources, before
+any habitat label changes.
+
+No habitat label changes in this entry. Column 3 of `data/habitat-review.tsv` stays AVONET
+verbatim and is still checked by `TestEveryDrawnBirdHasAHabitatReview`; `trait.Habitats` and the
+"Shore and sea" group selector are unchanged.
+
+### Why
+
+The occurrence data separates open ocean (30% or more of water records beyond 10 km) from sea near
+shore (under 20%) cleanly, but does not separate beach birds from sea ducks, because shore records
+are logged just past the coastline (Purple Sandpiper 17%, Sanderling 12%, Black Scoter 10%). The
+per-species table from the 2026-11-08 run (`sea-shares.tsv`) was not committed; only four shares
+are in [river/notes.md](../notes.md) — Black-footed Albatross 89%, Leach's Storm-Petrel 83%,
+Sooty Shearwater 67%, Northern Fulmar 77% — so the split cannot be decided from the record as it
+stands. Renaming the labels in column 3 would fail the ingest tests for all 114 Marine species, and
+adding "Offshore" or "Nearshore" to `trait.Habitats` would break
+[product.habitatAndDietFilters](local/product/months.md#habitatanddietfilters), which states that
+every term there is AVONET's, with AVONET's quoted definition.
+
+The tool, the requirement it satisfies, and the derived value on each species page are the
+follow-up this entry unblocks. Species the share cannot separate — gulls, terns, sea ducks, eiders,
+Common and Thick-billed Murre, Kittlitz's Murrelet — are listed in `REVIEW_NEEDED.md` for the owner.

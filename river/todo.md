@@ -1227,6 +1227,7 @@ are the likelier sources. Cost scales with species: about 1,082 now, about 11,00
 Status: parked
 Owner: Sameer
 Gate: a decision on the classification and on which sources may be used; before worldwide species
+Decision: [openSeaSplit](../requirements/decisions.md#openseasplit) (proposed) — records the share of water records more than 10 km from shore as a derived column; does not yet split the classification
 
 [GitHub issue #10](https://github.com/google/birdview/issues/10): AVONET's Coastal and Marine do not
 separate three groups a birder does: birds of the open ocean seen from boats (shearwaters, petrels),
